@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Записная книжка</title>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <h1>Записная книжка</h1>
+        <table id="contacts" class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Статус</th>
+                <th>Телефон</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Здесь будут добавляться строки -->
+            </tbody>
+        </table>
+        <button class="btn btn-primary" onclick="showAddForm()">Добавить запись</button>
+
+        <div id="popup" class="modal fade" tabindex="-1" role="dialog" style="opacity: 1; display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Контактная информация</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="name" class="form-control" placeholder="Имя">
+                        <input type="text" id="status" class="form-control" placeholder="Статус">
+                        <input type="text" id="phone" class="form-control" placeholder="Телефон">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveContact()">Сохранить</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirm-delete-popup" class="modal fade" tabindex="-1" role="dialog"
+             style="opacity: 1; display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Подтверждение удаления</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Вы точно хотите удалить элемент?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="deleteContact()">УДАЛИТЬ</button>
+                        <button type="button" class="btn btn-secondary" onclick="cancelDelete()">ОТМЕНА</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popup_edit" class="modal fade" tabindex="-1" role="dialog" style="opacity: 1; display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Редактирование контакта</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="editName" class="form-control" placeholder="Имя">
+                        <input type="text" id="editStatus" class="form-control" placeholder="Статус">
+                        <input type="text" id="editPhone" class="form-control" placeholder="Телефон">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveEditedContact()">Сохранить</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
